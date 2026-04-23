@@ -6,13 +6,27 @@
 <link rel="stylesheet" type="text/css" href="main.css">
     
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE-edge,chrome=1">
-    <meta name="viewport" content="width=device-width,initial-sacale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="#bbbbbb">
 <!--    index.css -->
 <link rel="stylesheet" type="text/css" href="index.css">
 <!--google.fonts-->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    /* Small, focused improvements for hero + cards */
+    .hero {
+        min-height: 60vh;
+        display: flex;
+        align-items: center;
+        background: linear-gradient(135deg, #2b2d42 0%, #1b1f2b 60%);
+        padding-top: 6rem;
+        padding-bottom: 4rem;
+    }
+    .hero .lead { color: #e6e6e6; }
+    .card .card-img-top { object-fit: cover; height: 200px; }
+    @media (max-width: 767px) { .hero { padding-top: 4rem; } }
+    </style>
     
 </head>
 <body>
@@ -20,9 +34,9 @@
     <nav class="navbar navbar-expand-lg bg-secondary navbar-dark text-uppercase fixed-top" id="mainNav">
     <div class="container-fluid">
   <!-- Brand -->
-    <a class="navbar-brand" href="#"><img class="logo" src="KLogo.JPG" style="width:70%"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar">
-    <span  class="navbar-toggler-icon"></span>  
+    <a class="navbar-brand" href="#"><img class="logo" src="KLogo.JPG" alt="Aelfaouzi logo" style="width:70%"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span  class="navbar-toggler-icon"></span>
         </button>
 <!-- Links -->
  <div class= "collapse navbar-collapse justify-content-end"  id="navbar">
@@ -43,34 +57,33 @@
 </nav>
 
 <!--    section-->
-    <section  id="banner">
-        <div class="container-fluid">
-            <div class= "row max-viewport align-items-center text-center">
-                <div class="col-md-6 d-none my-2 d-md-block">
-                    <img id="ph" src="images/ph.JPG" class="img-fluid rounded-circle">
+    <section id="banner" class="hero">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-5 d-none d-md-block">
+                    <img id="ph" src="images/ph.JPG" class="img-fluid rounded-circle" alt="Abdel Karim El-Faouzi portrait">
                 </div>
-                    <div class="col-12 col-sm-6 mx-auto ">
-                        <h1 class="text-white">Hi, I'm Abdel Karim El-Faouzi.</h1>
-                        <a href="https://github.com/Aelfaouzi/Portfolio/blob/master/Prtfolio.html" class="btn btn-lg btn-outline-warning text-uppercase m-2 p-2"><i class="fa fa-github mr-2 "> Github</i></a>
-                        <a href="https://www.linkedin.com/in/abdelkarim-el-faouzi-5129bb108/" class="btn btn-lg btn-outline-warning text-uppercase m-2 p-2"><i class="fa fa-linkedin mr-2"> linkedin</i></a>
-                        <a href="https://www.facebook.com/karim.elfaouzi" class="btn btn-lg btn-outline-warning text-uppercase m-2 p-2" target="-blank"><i class="fa fa-facebook mr-2"> facebook</i></a>
-                        <h3 class="text-white">Full Stack Developer</h3>
+                <div class="col-12 col-md-7 text-center text-md-left">
+                    <h1 class="text-white display-4">Hi, I'm Abdel Karim El-Faouzi.</h1>
+                    <p class="lead">Full-stack developer focused on building reliable web applications and delightful user experiences.</p>
+                    <p>
+                        <a href="https://github.com/Aelfaouzi/Portfolio/blob/master/Prtfolio.html" class="btn btn-lg btn-outline-warning mr-2" aria-label="View Github"><i class="fa fa-github mr-2"></i>Github</a>
+                        <a href="https://www.linkedin.com/in/abdelkarim-el-faouzi-5129bb108/" class="btn btn-lg btn-outline-warning mr-2" aria-label="View LinkedIn"><i class="fa fa-linkedin mr-2"></i>LinkedIn</a>
+                        <a href="#contact" class="btn btn-lg btn-warning" aria-label="Contact me">Contact</a>
+                    </p>
                 </div>
-                
             </div>
-        
         </div>
-    
     </section>
     <!--  Quality section-->
-    <section id="quality" class="py-2 bg-seconday">
+    <section id="quality" class="py-2 bg-secondary">
         <div class="container">
             <div class="row align-items-center text-center"> 
                 
                 <div class="col-sm-12 col-md-6 col-lg-4 text-black my-3 d-flex"><i class="fa fa-wrench fa-5x mr-3 align-self-center"></i>
                 <div class="inner-text">
                     <h1 class="my-3">Hard Working</h1>
-                    <p class="lead"> I have been working so hard in my education to make my self very well qualified as a software developer.</p>
+                    <p class="lead">I have been working hard in my education to make myself well qualified as a software developer.</p>
                     
                     </div>
                 </div>
@@ -88,7 +101,7 @@
                 <div class="col-sm-12 col-md-6 col-lg-4 text-black my-3 d-flex"><i class="fa fa-group fa-5x  mr-3 align-self-center"></i>
                 <div class="inner-text">
                     <h1 class="my-3">Team Player</h1>
-                    <p class="lead"> I like being around people and work with them towards a commen goal efficiently. I am a team player and I take my job seriousely.</p>
+                    <p class="lead">I like being around people and working with them toward a common goal. I take my job seriously.</p>
                     
                     </div>
                 </div>
@@ -143,32 +156,40 @@
     <section id="portfolio" class="p-5 bg-light">
         <div class="container">
            <div class="row">
-               <div class="col-sm-12 col-md-4 col-lg-4 my-3">
-                   <img id="img1" src="images/img5.png" class="img-fluid rounded" alt="picture">
-                   <a href="https://aelfaouzi.github.io/Calc/Calculator.html" class="btn btn-lg btn-outline-primary text-uppercase m-2 p-2"><h3 class=" mr-2 "> Calculator</h3></a>
-                   <p class="text-muted">
-                        This is my first web project using html and css to build a simple Calculator.
-                   </p>
+               <div class="col-sm-12 col-md-4 my-3">
+                   <div class="card h-100 shadow-sm">
+                       <img class="card-img-top" src="images/img5.png" alt="Calculator project screenshot">
+                       <div class="card-body d-flex flex-column">
+                           <h5 class="card-title">Calculator</h5>
+                           <p class="card-text text-muted">A simple calculator built with HTML and CSS as an early web project.</p>
+                           <a href="https://aelfaouzi.github.io/Calc/Calculator.html" class="mt-auto btn btn-outline-primary">View Project</a>
+                       </div>
+                   </div>
                </div>
-               
-               
-               <div class="col-sm-12 col-md-4 col-lg-4 my-3">
-                   <img  id="img2" src="images/img4.JPG" class="img-fluid rounded" alt="picture">
-				   <a href="https://drive.google.com/file/d/0B97ezpFEeYeQRUVzYWdZMzlqdDQ/view?usp=sharing" class="btn btn-lg btn-outline-primary text-uppercase m-2 p-2"><h3 class=" mr-2 "> Senior Design</h3></a>
-                   <p class="text-muted">
-                    Design a and develop a wearable health monitoring system to monitor the electrical activity of the heart (EKG), detect sudden falls, and alert medical assistance in case of emergencies
-                   </p>
+
+               <div class="col-sm-12 col-md-4 my-3">
+                   <div class="card h-100 shadow-sm">
+                       <img class="card-img-top" src="images/img4.JPG" alt="Senior design project screenshot">
+                       <div class="card-body d-flex flex-column">
+                           <h5 class="card-title">Senior Design</h5>
+                           <p class="card-text text-muted">Wearable health monitoring system: EKG, fall detection and alerting for emergencies.</p>
+                           <a href="https://drive.google.com/file/d/0B97ezpFEeYeQRUVzYWdZMzlqdDQ/view?usp=sharing" class="mt-auto btn btn-outline-primary">View Report</a>
+                       </div>
+                   </div>
                </div>
-               
-               <div class="col-sm-12 col-md-4 col-lg-4 my-3">
-                   <img  id="img2" src="images/image.jpg" class="img-fluid rounded" alt="picture">
-                  <a href="https://github.com/Aelfaouzi/Portfolio/blob/master/Prtfolio.html" class="btn btn-lg btn-outline-primary text-uppercase m-2 p-2"><h3 class=" mr-2 ">Portfolio </h3></a>
-                   <p class="text-muted">
-                       This is my a simple portfolio using bootstrap 4.
-                   </p>
+
+               <div class="col-sm-12 col-md-4 my-3">
+                   <div class="card h-100 shadow-sm">
+                       <img class="card-img-top" src="images/image.jpg" alt="Portfolio project screenshot">
+                       <div class="card-body d-flex flex-column">
+                           <h5 class="card-title">Portfolio</h5>
+                           <p class="card-text text-muted">This portfolio built with Bootstrap 4 showcasing projects and skills.</p>
+                           <a href="https://github.com/Aelfaouzi/Portfolio/blob/master/Prtfolio.html" class="mt-auto btn btn-outline-primary">View Source</a>
+                       </div>
+                   </div>
                </div>
             
-            </div>                   
+            </div>
         </div>
     </section>
 <!--    Social-->
@@ -193,60 +214,65 @@
     <section id="footer" class="p-3 bg-dark">
         <div class="container">
             <div class="row">
-            <div class="col text-center py-2">
-                <h4 class="text-white text-capitalize"> Copyright &copy; Abdelkarim El-faouzi 2019</h4>
+                <div class="col text-center py-2">
+                <h4 class="text-white text-capitalize"> Copyright &copy; Abdelkarim El-faouzi 2026</h4>
                 </div>
             </div>
         </div>
     </section>
    
     
-</body>
-<script>
-// Contact form handler: sends to Formspree (or any POST endpoint)
-document.addEventListener('DOMContentLoaded', function () {
-    const form = document.getElementById('contact-form');
-    const alertBox = document.getElementById('form-alert');
-    const submitBtn = document.getElementById('submit-btn');
+    <!-- JS: jQuery, Popper, Bootstrap (required for navbar toggler and other components) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-    form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        alertBox.classList.add('d-none');
-        submitBtn.disabled = true;
+    <script>
+    // Contact form handler: sends to Formspree (or any POST endpoint)
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('contact-form');
+        const alertBox = document.getElementById('form-alert');
+        const submitBtn = document.getElementById('submit-btn');
 
-        const formData = new FormData(form);
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+            alertBox.classList.add('d-none');
+            submitBtn.disabled = true;
 
-        fetch(form.action, {
-            method: form.method || 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
-            }
-        }).then(response => {
-            submitBtn.disabled = false;
-            if (response.ok) {
-                alertBox.className = 'alert alert-success';
-                alertBox.textContent = 'Thanks — your message has been sent!';
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                method: form.method || 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                submitBtn.disabled = false;
+                if (response.ok) {
+                    alertBox.className = 'alert alert-success';
+                    alertBox.textContent = 'Thanks — your message has been sent!';
+                    alertBox.classList.remove('d-none');
+                    form.reset();
+                } else {
+                    response.json().then(data => {
+                        alertBox.className = 'alert alert-danger';
+                        alertBox.textContent = data.error || 'Oops! There was a problem sending your message.';
+                        alertBox.classList.remove('d-none');
+                    }).catch(() => {
+                        alertBox.className = 'alert alert-danger';
+                        alertBox.textContent = 'Oops! There was a problem sending your message.';
+                        alertBox.classList.remove('d-none');
+                    });
+                }
+            }).catch(() => {
+                submitBtn.disabled = false;
+                alertBox.className = 'alert alert-danger';
+                alertBox.textContent = 'Network error — please try again later.';
                 alertBox.classList.remove('d-none');
-                form.reset();
-            } else {
-                response.json().then(data => {
-                    alertBox.className = 'alert alert-danger';
-                    alertBox.textContent = data.error || 'Oops! There was a problem sending your message.';
-                    alertBox.classList.remove('d-none');
-                }).catch(() => {
-                    alertBox.className = 'alert alert-danger';
-                    alertBox.textContent = 'Oops! There was a problem sending your message.';
-                    alertBox.classList.remove('d-none');
-                });
-            }
-        }).catch(() => {
-            submitBtn.disabled = false;
-            alertBox.className = 'alert alert-danger';
-            alertBox.textContent = 'Network error — please try again later.';
-            alertBox.classList.remove('d-none');
+            });
         });
     });
-});
-</script>
+    </script>
+</body>
 </html>
