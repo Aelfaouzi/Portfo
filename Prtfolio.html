@@ -50,7 +50,7 @@
                     <img id="ph" src="images/ph.JPG" class="img-fluid rounded-circle">
                 </div>
                     <div class="col-12 col-sm-6 mx-auto ">
-                        <h1 class="text-white">Hi, I'm Abdel.</h1>
+                        <h1 class="text-white">Hi, I'm Abdel Karim El-Faouzi.</h1>
                         <a href="https://github.com/Aelfaouzi/Portfolio/blob/master/Prtfolio.html" class="btn btn-lg btn-outline-warning text-uppercase m-2 p-2"><i class="fa fa-github mr-2 "> Github</i></a>
                         <a href="https://www.linkedin.com/in/abdelkarim-el-faouzi-5129bb108/" class="btn btn-lg btn-outline-warning text-uppercase m-2 p-2"><i class="fa fa-linkedin mr-2"> linkedin</i></a>
                         <a href="https://www.facebook.com/karim.elfaouzi" class="btn btn-lg btn-outline-warning text-uppercase m-2 p-2" target="-blank"><i class="fa fa-facebook mr-2"> facebook</i></a>
@@ -107,29 +107,32 @@
                 </div>
                 
             
-            <div class="col-sm-12 my-2">
-                
-                <p class="text-white">
-            <label> Name </label><br>
-            <input type="text" name="firtname">
-        </p>
-        
-        <p class="text-white">
-            <label>Email</label><br>
-            <input type="email" name="email">
-        </p>
-        <p class="text-white" >
-            <label> Phone Number </label><br>
-            <input type="tel" name="phone">
-        </p>
+                <div class="col-sm-12 my-2">
+                    <form id="contact-form" class="p-3 bg-secondary rounded" action="https://formspree.io/f/mqewgyyl" method="POST">
+                        <div class="form-group text-left">
+                            <label class="text-white" for="name">Name</label>
+                            <input id="name" name="name" class="form-control" type="text" required>
+                        </div>
 
-                <p class="text-white">Message</p>
-                    <form action="www.gmail.com">
-                        <textarea name="message" rows="5" cols="40" maxlength="150" placeholder="Please write no more than 50 words.."></textarea>
-                        <br>
-                        <input type="submit">
+                        <div class="form-group text-left">
+                            <label class="text-white" for="email">Email</label>
+                            <input id="email" name="email" class="form-control" type="email" required>
+                        </div>
+
+                        <div class="form-group text-left">
+                            <label class="text-white" for="phone">Phone Number</label>
+                            <input id="phone" name="phone" class="form-control" type="tel">
+                        </div>
+
+                        <div class="form-group text-left">
+                            <label class="text-white" for="message">Message</label>
+                            <textarea id="message" name="message" class="form-control" rows="5" maxlength="500" placeholder="Please write no more than 150 words.." required></textarea>
+                        </div>
+
+                        <div id="form-alert" class="alert d-none" role="alert"></div>
+
+                        <button id="submit-btn" class="btn btn-warning" type="submit">Send Message</button>
                     </form>
-                 
                 </div>
         </div>
         </div>
@@ -199,4 +202,51 @@
    
     
 </body>
+<script>
+// Contact form handler: sends to Formspree (or any POST endpoint)
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.getElementById('contact-form');
+    const alertBox = document.getElementById('form-alert');
+    const submitBtn = document.getElementById('submit-btn');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        alertBox.classList.add('d-none');
+        submitBtn.disabled = true;
+
+        const formData = new FormData(form);
+
+        fetch(form.action, {
+            method: form.method || 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        }).then(response => {
+            submitBtn.disabled = false;
+            if (response.ok) {
+                alertBox.className = 'alert alert-success';
+                alertBox.textContent = 'Thanks — your message has been sent!';
+                alertBox.classList.remove('d-none');
+                form.reset();
+            } else {
+                response.json().then(data => {
+                    alertBox.className = 'alert alert-danger';
+                    alertBox.textContent = data.error || 'Oops! There was a problem sending your message.';
+                    alertBox.classList.remove('d-none');
+                }).catch(() => {
+                    alertBox.className = 'alert alert-danger';
+                    alertBox.textContent = 'Oops! There was a problem sending your message.';
+                    alertBox.classList.remove('d-none');
+                });
+            }
+        }).catch(() => {
+            submitBtn.disabled = false;
+            alertBox.className = 'alert alert-danger';
+            alertBox.textContent = 'Network error — please try again later.';
+            alertBox.classList.remove('d-none');
+        });
+    });
+});
+</script>
 </html>
